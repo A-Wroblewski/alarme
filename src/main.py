@@ -11,7 +11,7 @@ if __name__ == '__main__':
     app = QApplication([])
     window = MainWindow()
 
-    # app_style.config_style()
+    app_style.set_style()
 
     top_grid_layout = TopGridLayout()
     window.main_layout.addLayout(top_grid_layout)

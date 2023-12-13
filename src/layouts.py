@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import QLabel, QLineEdit, QTimeEdit, QGridLayout, QFrame
-
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QLabel, QLineEdit, QTimeEdit, QGridLayout
 
 class TopGridLayout(QGridLayout):
     def __init__(self):
@@ -39,6 +39,7 @@ class BottomGridLayout(QGridLayout):
     def create_widgets(self):
         notification_label = QLabel()
         notification_label.setText('Ajustes da notificação (opcionais)')
+        notification_label.setAlignment(Qt.AlignmentFlag.AlignBottom)
 
         title_label = QLabel()
         title_label.setText('Título:')
@@ -54,10 +55,6 @@ class BottomGridLayout(QGridLayout):
 
     def add_widgets(self):
         notification_label, title_label, title_input, description_label, description_input = self.create_widgets()
-
-        # frame = QFrame()
-        # frame.setStyleSheet('background-color: grey;')
-        # self.addWidget(frame)
 
         self.addWidget(notification_label, 0, 0, 1, 2)
         self.addWidget(title_label, 1, 0)
