@@ -1,7 +1,8 @@
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout
 
-from images_path import ICON_PATH
+from assets_path import ICON_PATH
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
