@@ -15,8 +15,9 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(central_widget)
         self.setWindowTitle('Alarme')
 
-        self.set_icon()
-
-    def set_icon(self):
         icon = QIcon(str(ICON_PATH))
         self.setWindowIcon(icon)
+
+    def closeEvent(self, event):
+        self.hide()
+        event.ignore()

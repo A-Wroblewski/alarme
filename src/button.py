@@ -17,7 +17,7 @@ class StartCancelButton(QPushButton):
 
         self.clicked.connect(self.toggle_timer)
 
-        self.timer = QTimer(self)
+        self.timer = QTimer()
         self.timer.timeout.connect(self.update_label)
 
     def toggle_timer(self):
@@ -58,7 +58,7 @@ class StartCancelButton(QPushButton):
         description = self.bottom_grid_layout.itemAtPosition(2, 1).widget().text()
 
         if not title:
-            notification.title = 'Alarme finalizado'
+            notification.title = 'Cronômetro finalizado'
         else:
             notification.title = title
 
