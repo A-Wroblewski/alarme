@@ -1,12 +1,27 @@
+import os
 import sys
+import winreg as wr
 
 from PySide6.QtGui import QFont, QAction, QIcon
 from PySide6.QtWidgets import QApplication, QWidget, QSystemTrayIcon, QMenu
 
-from assets_path import ICON_PATH
 from button import StartCancelButton
 from layouts import TopGridLayout, BottomGridLayout
 from main_window import MainWindow
+
+from utils.assets_paths import ICON
+from utils.pyinstaller import resource_path
+
+def set_run_on_startup():
+    key = r'Software\Microsoft\Windows\CurrentVersion\Run'
+    app_name = 'Alarme'
+    script_path = os.path.abspath(sys.argv[0])
+
+    try:
+        with wr.OpenKey(wr.HKEY_CURRENT_USER, key, 0, wr.KEY_SET_VALUE) as registry_key:
+            wr.SetValueEx(registry_key, app_name, 0, wr.REG_SZ, script_path)
+    except:
+        pass
 
 def make_spacer(height):
     spacer = QWidget()
@@ -14,6 +29,8 @@ def make_spacer(height):
     window.main_layout.addWidget(spacer)
 
 if __name__ == '__main__':
+    set_run_on_startup()
+
     app = QApplication([])
     window = MainWindow()
 
@@ -39,8 +56,11 @@ if __name__ == '__main__':
     #                                tray icon                                #
     # ----------------------------------------------------------------------- #
 
+    icon_path = resource_path(ICON)
+    icon = QIcon(icon_path)
+
     tray_icon = QSystemTrayIcon()
-    tray_icon.setIcon(QIcon(str(ICON_PATH)))
+    tray_icon.setIcon(icon)
 
     menu = QMenu()
     show_action = QAction('Abrir', triggered=window.show)

@@ -2,7 +2,8 @@ from notifypy import Notify
 from PySide6.QtCore import QTime, QTimer
 from PySide6.QtWidgets import QPushButton
 
-from assets_path import ICON_PATH, AUDIO_PATH
+from utils.assets_paths import ICON, AUDIO
+from utils.pyinstaller import resource_path
 
 
 class StartCancelButton(QPushButton):
@@ -63,7 +64,11 @@ class StartCancelButton(QPushButton):
             notification.title = title
 
         notification.message = description
-        notification.icon = ICON_PATH
-        notification.audio = str(AUDIO_PATH)
+
+        icon_path = resource_path(ICON)
+        notification.icon = icon_path
+
+        audio_path = resource_path(AUDIO)
+        notification.audio = audio_path
 
         notification.send()
