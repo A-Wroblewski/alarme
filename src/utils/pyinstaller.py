@@ -1,7 +1,7 @@
 import os
 import sys
 
-from utils.assets_paths import ASSETS_PATH
+from utils.paths import ASSETS_PATH
 
 def resource_path(relative_path):
     try:

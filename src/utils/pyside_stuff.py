@@ -1,7 +1,7 @@
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget, QMessageBox
 
-from utils.assets_paths import ICON
+from utils.paths import ICON
 from utils.pyinstaller import resource_path
 
 def make_spacer(height, window):

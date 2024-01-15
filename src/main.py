@@ -7,7 +7,7 @@ from button import StartCancelButton
 from layouts import TopGridLayout, BottomGridLayout
 from main_window import MainWindow
 
-from utils.assets_paths import ICON
+from utils.paths import ICON
 from utils.pyinstaller import resource_path
 from utils.pyside_stuff import make_spacer
 

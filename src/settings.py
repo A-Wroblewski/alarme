@@ -2,7 +2,7 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QPushButton, QVBoxLayout, QHBoxLayout, QDialog, QCheckBox
 
-from utils.assets_paths import ICON
+from utils.paths import ICON
 from utils.json_stuff import save_settings, load_settings
 from utils.pyinstaller import resource_path
 from utils.pyside_stuff import make_spacer, decide_unsaved_settings

@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout
 
 from settings import SettingsWindow
 
-from utils.assets_paths import ICON
+from utils.paths import ICON
 from utils.pyinstaller import resource_path
 
 

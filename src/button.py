@@ -2,7 +2,7 @@ from notifypy import Notify
 from PySide6.QtCore import QTime, QTimer
 from PySide6.QtWidgets import QPushButton
 
-from utils.assets_paths import ICON, AUDIO
+from utils.paths import ICON, AUDIO
 from utils.pyinstaller import resource_path
 
 
