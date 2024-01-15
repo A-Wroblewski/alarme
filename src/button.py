@@ -55,15 +55,24 @@ class StartCancelButton(QPushButton):
     def send_notification(self):
         notification = Notify()
 
+        app_name = 'Alarme'
+        notification.application_name = app_name
+
         title = self.bottom_grid_layout.itemAtPosition(1, 1).widget().text()
         description = self.bottom_grid_layout.itemAtPosition(2, 1).widget().text()
 
+        title = title.strip()
+        description = description.strip()
+
         if not title:
-            notification.title = 'Cronômetro finalizado'
+            notification.title = app_name
         else:
             notification.title = title
 
-        notification.message = description
+        if not description:
+            notification.message = 'Cronômetro finalizado'
+        else:
+            notification.message = description
 
         icon_path = resource_path(ICON)
         notification.icon = icon_path
