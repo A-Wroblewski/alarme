@@ -7,11 +7,14 @@ from button import StartCancelButton
 from layouts import TopGridLayout, BottomGridLayout
 from main_window import MainWindow
 
+from utils.json_stuff import set_json_on_run
 from utils.paths import ICON
 from utils.pyinstaller import resource_path
 from utils.pyside_stuff import make_spacer
 
 if __name__ == '__main__':
+    set_json_on_run()
+
     app = QApplication([])
     window = MainWindow(app)
 
